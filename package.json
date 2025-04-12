@@ -13,7 +13,7 @@
     "react-dom": "^19.0.0",
     "react-redux": "^8.0.2",
     "react-router": "^7.5.0",
-    "react-router-dom": "^5.3.0",
+    "react-router-dom": "^7.5.0",
     "sass": "^1.86.3",
     "web-vitals": "^2.1.4"
   },
@@ -29,7 +29,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write ./src/**/*{.jsx,js,scss}",
+    "eslint": "eslint ./src/**/*{.jsx,js}"
   },
   "browserslist": {
     "production": [

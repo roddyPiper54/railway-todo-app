@@ -19,7 +19,7 @@ export const NewTask = () => {
   const handleDetailChange = (e) => setDetail(e.target.value);
   const handleLimitChange = (e) => {
     const date = new Date(e.target.value);
-    setLimit(date.toISOString());
+    setLimit(date.toISOString()); //9時間時差修正必要
   };
   const handleSelectList = (id) => setSelectListId(id);
 
@@ -27,7 +27,7 @@ export const NewTask = () => {
     const data = {
       title: title,
       detail: detail,
-      limit: limit,
+      limit: limit, //期限
       done: false,
     };
 
@@ -44,15 +44,6 @@ export const NewTask = () => {
         setErrorMessage(`タスクの作成に失敗しました。${err}`);
       });
   };
-  // ①useEffectで現在の日時を取得する。
-  const date= new Date();
-  console.log(date);
-  //- limitのフォーマット「YYYY-MM-DDTHH:MM:SSZ」に注意してください。
-  //- 例）2022-07-15T11:11:11Z
-  // ②、①で取得した値をuseStateに保管する。
-  // ③、②で保管した日時を出力する。
-
-  //onsubmitで入力時刻をsetDate
 
   useEffect(() => {
     axios
@@ -111,9 +102,7 @@ export const NewTask = () => {
           <input
             type="datetime-local"
             id="limit"
-            //name="limit-time"
             placeholder="2025-01-01T00:00"
-            //value="2025-12-12T23:59:59Z"
             min="2025-01-01T00:00"
             max="2050-12-31T00:00"
             onChange={handleLimitChange}

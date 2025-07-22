@@ -12,6 +12,7 @@ export const Home = () => {
   const [selectListId, setSelectListId] = useState();
   const [tasks, setTasks] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showModal, setShowModal] = useState(false)
   const [cookies] = useCookies();
   const handleIsDoneDisplayChange = (e) => setIsDoneDisplay(e.target.value);
 
@@ -123,7 +124,6 @@ export const Home = () => {
         </div>
 
         <div className="modalWrapper is-closed">
-        modalWrapperガワ
           <div className="modal">
             modal中身
           </div>
